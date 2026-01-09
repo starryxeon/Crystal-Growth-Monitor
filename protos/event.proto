@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service Events {
+    rpc SendEvent (Event) returns (EventResponse);
+}
+
+message Event {
+    EventType type = 0;
+    int index = 1;
+    string payload = 2;
+}
+
+message EventResponse {
+    int index = 0;
+    string payload = 1;
+}
+
+enum EventType {
+    NewFurnace = 0;
+    RemoveFurnace = 1;
+    ModifyFurnace = 2;
+    NewProfile = 3;
+    RemoveProfile = 4;
+    ModifyProfile = 5;
+    RequestProfiles = 6;
+    RequestFurnaces = 7;
+    SetFurnaceProfile = 8;
+    AckFurnaceAlarm = 9;
+}

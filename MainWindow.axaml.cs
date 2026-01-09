@@ -7,7 +7,7 @@ namespace Crystal_Growth_Monitor
     public partial class MainWindow : Window
     {
         public bool disabled = true;
-        public string copiedText;
+        public string? copiedText;
 
         public MainWindow()
         {

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+service StreamService {
+  rpc Stream(stream Frame) returns (stream Frame);
+}
+
+message Frame {
+    uint64 seq = 0;
+    string payload = 1;
+}
