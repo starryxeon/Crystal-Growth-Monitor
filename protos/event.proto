@@ -1,18 +1,19 @@
 syntax = "proto3";
+option csharp_namespace = "Crystal_Growth_Monitor.grpc";
 
 service Events {
     rpc SendEvent (Event) returns (EventResponse);
 }
 
 message Event {
-    EventType type = 0;
-    int index = 1;
-    string payload = 2;
+    EventType type = 1;
+    uint32 index = 2;
+    string payload = 3;
 }
 
 message EventResponse {
-    int index = 0;
-    string payload = 1;
+    uint32 index = 1;
+    string payload = 2;
 }
 
 enum EventType {
