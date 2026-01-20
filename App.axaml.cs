@@ -16,7 +16,7 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        GrpcClient = new FurnaceGrpcClient("http://localhost:5000");
+        GrpcClient = new FurnaceGrpcClient("http://192.168.168.96:5000");
         GrpcClient.Start();
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
