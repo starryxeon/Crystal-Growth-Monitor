@@ -2,6 +2,7 @@
 using System;
 
 namespace Crystal_Growth_Monitor;
+using grpc;
 
 class Program
 {

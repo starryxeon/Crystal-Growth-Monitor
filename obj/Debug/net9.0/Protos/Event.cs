@@ -24,19 +24,14 @@ namespace Crystal_Growth_Monitor.grpc {
     static EventReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJQcm90b3MvZXZlbnQucHJvdG8iQQoFRXZlbnQSGAoEdHlwZRgBIAEoDjIK",
-            "LkV2ZW50VHlwZRINCgVpbmRleBgCIAEoDRIPCgdwYXlsb2FkGAMgASgJIi8K",
-            "DUV2ZW50UmVzcG9uc2USDQoFaW5kZXgYASABKA0SDwoHcGF5bG9hZBgCIAEo",
-            "CSrNAQoJRXZlbnRUeXBlEg4KCk5ld0Z1cm5hY2UQABIRCg1SZW1vdmVGdXJu",
-            "YWNlEAESEQoNTW9kaWZ5RnVybmFjZRACEg4KCk5ld1Byb2ZpbGUQAxIRCg1S",
-            "ZW1vdmVQcm9maWxlEAQSEQoNTW9kaWZ5UHJvZmlsZRAFEhMKD1JlcXVlc3RQ",
-            "cm9maWxlcxAGEhMKD1JlcXVlc3RGdXJuYWNlcxAHEhUKEVNldEZ1cm5hY2VQ",
-            "cm9maWxlEAgSEwoPQWNrRnVybmFjZUFsYXJtEAkyLQoGRXZlbnRzEiMKCVNl",
-            "bmRFdmVudBIGLkV2ZW50Gg4uRXZlbnRSZXNwb25zZUIeqgIbQ3J5c3RhbF9H",
-            "cm93dGhfTW9uaXRvci5ncnBjYgZwcm90bzM="));
+            "ChJQcm90b3MvZXZlbnQucHJvdG8iNQoFRXZlbnQSDAoEdHlwZRgBIAEoBRIN",
+            "CgVpbmRleBgCIAEoDRIPCgdwYXlsb2FkGAMgASgJIi8KDUV2ZW50UmVzcG9u",
+            "c2USDQoFaW5kZXgYASABKA0SDwoHcGF5bG9hZBgCIAEoCTItCgZFdmVudHMS",
+            "IwoJU2VuZEV2ZW50EgYuRXZlbnQaDi5FdmVudFJlc3BvbnNlQh6qAhtDcnlz",
+            "dGFsX0dyb3d0aF9Nb25pdG9yLmdycGNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Crystal_Growth_Monitor.grpc.EventType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Crystal_Growth_Monitor.grpc.Event), global::Crystal_Growth_Monitor.grpc.Event.Parser, new[]{ "Type", "Index", "Payload" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Crystal_Growth_Monitor.grpc.EventResponse), global::Crystal_Growth_Monitor.grpc.EventResponse.Parser, new[]{ "Index", "Payload" }, null, null, null, null)
           }));
@@ -44,22 +39,6 @@ namespace Crystal_Growth_Monitor.grpc {
     #endregion
 
   }
-  #region Enums
-  public enum EventType {
-    [pbr::OriginalName("NewFurnace")] NewFurnace = 0,
-    [pbr::OriginalName("RemoveFurnace")] RemoveFurnace = 1,
-    [pbr::OriginalName("ModifyFurnace")] ModifyFurnace = 2,
-    [pbr::OriginalName("NewProfile")] NewProfile = 3,
-    [pbr::OriginalName("RemoveProfile")] RemoveProfile = 4,
-    [pbr::OriginalName("ModifyProfile")] ModifyProfile = 5,
-    [pbr::OriginalName("RequestProfiles")] RequestProfiles = 6,
-    [pbr::OriginalName("RequestFurnaces")] RequestFurnaces = 7,
-    [pbr::OriginalName("SetFurnaceProfile")] SetFurnaceProfile = 8,
-    [pbr::OriginalName("AckFurnaceAlarm")] AckFurnaceAlarm = 9,
-  }
-
-  #endregion
-
   #region Messages
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Event : pb::IMessage<Event>
@@ -110,10 +89,10 @@ namespace Crystal_Growth_Monitor.grpc {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Crystal_Growth_Monitor.grpc.EventType type_ = global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace;
+    private int type_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Crystal_Growth_Monitor.grpc.EventType Type {
+    public int Type {
       get { return type_; }
       set {
         type_ = value;
@@ -169,7 +148,7 @@ namespace Crystal_Growth_Monitor.grpc {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace) hash ^= Type.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
       if (Index != 0) hash ^= Index.GetHashCode();
       if (Payload.Length != 0) hash ^= Payload.GetHashCode();
       if (_unknownFields != null) {
@@ -190,9 +169,9 @@ namespace Crystal_Growth_Monitor.grpc {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace) {
+      if (Type != 0) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Type);
+        output.WriteInt32(Type);
       }
       if (Index != 0) {
         output.WriteRawTag(16);
@@ -212,9 +191,9 @@ namespace Crystal_Growth_Monitor.grpc {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace) {
+      if (Type != 0) {
         output.WriteRawTag(8);
-        output.WriteEnum((int) Type);
+        output.WriteInt32(Type);
       }
       if (Index != 0) {
         output.WriteRawTag(16);
@@ -234,8 +213,8 @@ namespace Crystal_Growth_Monitor.grpc {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Type);
       }
       if (Index != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Index);
@@ -255,7 +234,7 @@ namespace Crystal_Growth_Monitor.grpc {
       if (other == null) {
         return;
       }
-      if (other.Type != global::Crystal_Growth_Monitor.grpc.EventType.NewFurnace) {
+      if (other.Type != 0) {
         Type = other.Type;
       }
       if (other.Index != 0) {
@@ -284,7 +263,7 @@ namespace Crystal_Growth_Monitor.grpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::Crystal_Growth_Monitor.grpc.EventType) input.ReadEnum();
+            Type = input.ReadInt32();
             break;
           }
           case 16: {
@@ -315,7 +294,7 @@ namespace Crystal_Growth_Monitor.grpc {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Type = (global::Crystal_Growth_Monitor.grpc.EventType) input.ReadEnum();
+            Type = input.ReadInt32();
             break;
           }
           case 16: {

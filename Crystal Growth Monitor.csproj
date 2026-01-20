@@ -24,6 +24,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
     <Protobuf Include="Protos\event.proto" />
     <Protobuf Include="Protos\stream.proto" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
