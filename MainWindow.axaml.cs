@@ -11,12 +11,12 @@ namespace Crystal_Growth_Monitor
     {
         public bool disabled = true;
         public string? copiedText;
-        //FurnaceGrpcClient client;
+        FurnaceGrpcClient client;
 
         public MainWindow()
         {
             InitializeComponent();
-            //client = App.GrpcClient;
+            client = App.GrpcClient;
         }
 
         private void CopyText_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -25,17 +25,17 @@ namespace Crystal_Growth_Monitor
             copiedText = OutputText.Text;
         }
 
-        private async Task ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             disabled = !disabled;
             ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
             Console.WriteLine($"Value of 'disabled' variable: {disabled}");
-            /*await client.eventIn.WriteAsync(new Event
+            client.eventIn.WriteAsync(new Event
             {
                 Type = 6,
                 Index = 0,
                 Payload = "client says hello"
-            });*/
+            });
         }
     }
 }
