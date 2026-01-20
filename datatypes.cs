@@ -123,7 +123,7 @@ public class Circle
 /// </summary>
 public sealed class ProfileDef
 {
-    public string Label { get; init; }
+    public string? Label { get; init; }
     public List<Segment> Segments { get; } = new();
 }
 

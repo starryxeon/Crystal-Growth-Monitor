@@ -25,12 +25,12 @@ namespace Crystal_Growth_Monitor
             copiedText = OutputText.Text;
         }
 
-        private async Task ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             disabled = !disabled;
             ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
             Console.WriteLine($"Value of 'disabled' variable: {disabled}");
-            await client.eventIn.WriteAsync(new Event
+            client.eventIn.WriteAsync(new Event
             {
                 Type = 6,
                 Index = 0,

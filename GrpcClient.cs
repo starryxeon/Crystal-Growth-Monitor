@@ -34,7 +34,7 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
     public FurnaceGrpcClient(string address, GrpcChannelOptions? options = null)
     {
         // If your server is plaintext h2c (http://), you must enable HTTP/2 without TLS:
-        //   AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
         //
         // Do that once at process start (recommended) or before creating the channel.
         _channel = GrpcChannel.ForAddress(address, options ?? new GrpcChannelOptions());
@@ -181,6 +181,17 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
         }
         catch (OperationCanceledException) { }
         catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled) { }
+        catch (RpcException ex)
+        {
+            Console.WriteLine($"gRPC error: {ex.StatusCode} - {ex.Status.Detail}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Event loop crashed: {ex}");
+            throw;
+        }
+
         finally
         {
             output.TryComplete();

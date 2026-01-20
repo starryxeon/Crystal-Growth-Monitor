@@ -152,3 +152,4 @@ C:\Users\maxbp\Crystal-Growth-Monitor\obj\Debug\net9.0\ref\Crystal Growth Monito
 C:\Users\maxbp\Crystal-Growth-Monitor\bin\Debug\net9.0\Grpc.AspNetCore.Server.dll
 C:\Users\maxbp\Crystal-Growth-Monitor\bin\Debug\net9.0\Grpc.AspNetCore.Server.ClientFactory.dll
 C:\Users\maxbp\Crystal-Growth-Monitor\bin\Debug\net9.0\Grpc.Net.ClientFactory.dll
+C:\Users\maxbp\Crystal-Growth-Monitor\bin\Debug\net9.0\OpenCvSharp.dll
