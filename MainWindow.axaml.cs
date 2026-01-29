@@ -32,9 +32,9 @@ namespace Crystal_Growth_Monitor
             Console.WriteLine($"Value of 'disabled' variable: {disabled}");
             client.eventIn.WriteAsync(new Event
             {
-                Type = 6,
+                Type = 9,
                 Index = 0,
-                Payload = "client says hello"
+                Payload = ""
             });
         }
     }

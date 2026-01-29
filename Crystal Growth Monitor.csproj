@@ -25,8 +25,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
-    <Protobuf Include="Protos\event.proto" />
-    <Protobuf Include="Protos\stream.proto" />
+    <Protobuf Include="protos\event.proto" />
+    <Protobuf Include="protos\stream.proto" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 </Project>
