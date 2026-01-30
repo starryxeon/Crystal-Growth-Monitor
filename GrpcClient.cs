@@ -80,7 +80,7 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
             throw new InvalidOperationException("Client already started.");
             
         _framesTask = RunFramesAsync(_frameChannel.Reader, _frameResponseChannel.Writer, _cts.Token);
-        _eventsTask = RunEventsAsync(_eventChannel.Reader, _eventResponseChannel.Writer, _cts.Token);
+        //_eventsTask = RunEventsAsync(_eventChannel.Reader, _eventResponseChannel.Writer, _cts.Token);
 
     }
 
@@ -195,6 +195,34 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
         finally
         {
             output.TryComplete();
+        }
+    }
+
+    public async Task<EventResponse> SendEventAsync(Event ev, CancellationToken ct = default)
+    {
+        try
+        {
+            return await _eventsClient.SendEventAsync(ev, cancellationToken: ct)
+                                      .ResponseAsync
+                                      .ConfigureAwait(false);
+        }
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
+        {
+            throw;
+        }
+        catch (RpcException ex)
+        {
+            Console.WriteLine($"gRPC error: {ex.StatusCode} - {ex.Status.Detail}");
+            throw;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"SendEvent crashed: {ex}");
+            throw;
         }
     }
 }

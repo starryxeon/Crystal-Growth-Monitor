@@ -24,18 +24,33 @@ namespace Crystal_Growth_Monitor
             OutputText.Text = InputBox.Text;
             copiedText = OutputText.Text;
         }
-
-        private void ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        
+        private async void ChangeColor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            disabled = !disabled;
-            ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
-            Console.WriteLine($"Value of 'disabled' variable: {disabled}");
-            client.eventIn.WriteAsync(new Event
+            if (sender is not Button btn) return;
+
+            btn.IsEnabled = false;
+            try
             {
-                Type = 9,
-                Index = 0,
-                Payload = ""
-            });
+                disabled = !disabled;
+                ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
+                Console.WriteLine($"Value of 'disabled' variable: {disabled}");
+                var resp = await client.SendEventAsync(new Event
+                {
+                    Type = 9,
+                    Index = 0,
+                    Payload = ""
+                });
+                Console.WriteLine(resp);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                btn.IsEnabled = true;
+            }
         }
     }
 }
