@@ -1,0 +1,2 @@
+obj\Debug\net9.0\protos/Stream.cs \
+obj\Debug\net9.0\protos/StreamGrpc.cs: protos/stream.proto

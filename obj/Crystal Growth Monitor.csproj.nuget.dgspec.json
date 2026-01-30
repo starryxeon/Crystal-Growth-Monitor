@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/home/isomet-xeon/Development/Crystal Growth Monitor/Crystal Growth Monitor.csproj": {}
+    "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {}
   },
   "projects": {
-    "/home/isomet-xeon/Development/Crystal Growth Monitor/Crystal Growth Monitor.csproj": {
+    "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/isomet-xeon/Development/Crystal Growth Monitor/Crystal Growth Monitor.csproj",
+        "projectUniqueName": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
         "projectName": "Crystal Growth Monitor",
-        "projectPath": "/home/isomet-xeon/Development/Crystal Growth Monitor/Crystal Growth Monitor.csproj",
-        "packagesPath": "/home/isomet-xeon/.nuget/packages/",
-        "outputPath": "/home/isomet-xeon/Development/Crystal Growth Monitor/obj/",
+        "projectPath": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
+        "packagesPath": "C:\\Users\\maxbp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/isomet-xeon/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\maxbp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "/usr/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,6 +63,28 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.3.10, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.33.3, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.76.0, )"
+            },
+            "Grpc.Core.Api": {
+              "target": "Package",
+              "version": "[2.76.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.76.0, )"
+            },
+            "OpenCvSharp4": {
+              "target": "Package",
+              "version": "[4.11.0.20250507, )"
             }
           },
           "imports": [
@@ -78,11 +99,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.308/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
