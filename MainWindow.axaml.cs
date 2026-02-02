@@ -1,9 +1,13 @@
 using Avalonia.Controls;
+using Avalonia.Threading;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using Crystal_Growth_Monitor.grpc;
 using Grpc.Net.ClientFactory;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
+using Crystal_Growth_Monitor.rtsp;
 
 namespace Crystal_Growth_Monitor
 {
@@ -13,10 +17,26 @@ namespace Crystal_Growth_Monitor
         public string? copiedText;
         FurnaceGrpcClient client;
 
+        private readonly RtspCameraService _camera = new();
+
+
         public MainWindow()
         {
             InitializeComponent();
             client = App.GrpcClient;
+
+            _camera.FrameReady += bitmap =>
+            {
+                CameraImage.Source = bitmap;
+            };
+        
+            _camera.Start("rtsp://192.168.168.202:8554/cam");
+        }
+
+        protected override void OnClosing(WindowClosingEventArgs e)
+        {
+            _camera.Dispose();
+            base.OnClosing(e);
         }
 
         private void CopyText_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {}
+    "/home/isomet-xeon/Development/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {
+    "/home/isomet-xeon/Development/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
+        "projectUniqueName": "/home/isomet-xeon/Development/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj",
         "projectName": "Crystal Growth Monitor",
-        "projectPath": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
-        "packagesPath": "C:\\Users\\maxbp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maxbp\\Crystal-Growth-Monitor\\obj\\",
+        "projectPath": "/home/isomet-xeon/Development/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj",
+        "packagesPath": "/home/isomet-xeon/.nuget/packages/",
+        "outputPath": "/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\maxbp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/isomet-xeon/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -106,7 +107,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.310/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }

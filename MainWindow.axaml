@@ -1,35 +1,50 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Crystal_Growth_Monitor.MainWindow"
-        Width="400"
-        Height="350"
+        Width="1000"
+        Height="500"
         Title="Crystal Growth Monitor">
 
-    <StackPanel Spacing="10" Margin="20">
+    <Grid Margin="20"
+          ColumnDefinitions="Auto,*"
+          RowDefinitions="*">
 
-        <!-- Text entry -->
-        <TextBox Name="InputBox"
-                 Watermark="Enter text here"/>
+        <StackPanel Grid.Column="0"
+                    Spacing="10"
+                    Width="300">
 
-        <!-- Button to copy text -->
-        <Button Content="Copy Text"
-                Click="CopyText_Click"/>
+            <TextBox Name="InputBox"
+                     Watermark="Enter text here"/>
 
-        <!-- Text output -->
-        <TextBlock Name="OutputText"
-                   FontSize="16"/>
+            <Button Content="Copy Text"
+                    Click="CopyText_Click"/>
 
-        <!-- Colored circle -->
-        <Ellipse Name="ColorCircle"
-                 Width="80"
-                 Height="80"
-                 Fill="Red"
-                 HorizontalAlignment="Center"/>
+            <TextBlock Name="OutputText"
+                       FontSize="16"/>
 
-        <!-- Button to change circle color -->
-        <Button Content="Change Circle Color"
-                Click="ChangeColor_Click"/>
+            <Ellipse Name="ColorCircle"
+                     Width="80"
+                     Height="80"
+                     Fill="Red"
+                     HorizontalAlignment="Center"/>
 
-    </StackPanel>
+            <Button Content="Change Circle Color"
+                    Click="ChangeColor_Click"/>
 
+        </StackPanel>
+
+        <Border Grid.Column="1"
+                Margin="20,0,0,0"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                CornerRadius="6">
+
+            <Image Name="CameraImage"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"/>
+
+        </Border>
+
+    </Grid>
 </Window>
