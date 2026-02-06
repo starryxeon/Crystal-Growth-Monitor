@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Crystal Growth Monitor.csproj",
+                "${workspaceFolder}/Crystal-Growth-Monitor.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Crystal Growth Monitor.csproj",
+                "${workspaceFolder}/Crystal-Growth-Monitor.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Crystal Growth Monitor.csproj"
+                "${workspaceFolder}/Crystal-Growth-Monitor.sln"
             ],
             "problemMatcher": "$msCompile"
         }

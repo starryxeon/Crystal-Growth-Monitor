@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[11.3.10, )"
             },
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
             "Google.Protobuf": {
               "target": "Package",
               "version": "[3.33.3, )"

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kcDMKVxSmNc=",
+  "dgSpecHash": "/WP5HqUDaOI=",
   "success": true,
   "projectFilePath": "/home/isomet-xeon/Development/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "/home/isomet-xeon/.nuget/packages/avalonia.themes.simple/11.3.10/avalonia.themes.simple.11.3.10.nupkg.sha512",
     "/home/isomet-xeon/.nuget/packages/avalonia.win32/11.3.10/avalonia.win32.11.3.10.nupkg.sha512",
     "/home/isomet-xeon/.nuget/packages/avalonia.x11/11.3.10/avalonia.x11.11.3.10.nupkg.sha512",
+    "/home/isomet-xeon/.nuget/packages/communitytoolkit.mvvm/8.4.0/communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "/home/isomet-xeon/.nuget/packages/google.protobuf/3.33.3/google.protobuf.3.33.3.nupkg.sha512",
     "/home/isomet-xeon/.nuget/packages/grpc.aspnetcore/2.76.0/grpc.aspnetcore.2.76.0.nupkg.sha512",
     "/home/isomet-xeon/.nuget/packages/grpc.aspnetcore.server/2.76.0/grpc.aspnetcore.server.2.76.0.nupkg.sha512",

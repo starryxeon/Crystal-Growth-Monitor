@@ -1,3 +1,14 @@
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.csproj.AssemblyReference.cache
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Avalonia/Resources.Inputs.cache
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Avalonia/resources
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.GeneratedMSBuildEditorConfig.editorconfig
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.AssemblyInfoInputs.cache
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.AssemblyInfo.cs
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.csproj.CoreCompileInputs.cache
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.sourcelink.json
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.dll
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/refint/Crystal Growth Monitor.dll
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.pdb
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Crystal Growth Monitor
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Crystal Growth Monitor.deps.json
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Crystal Growth Monitor.runtimeconfig.json
@@ -27,6 +38,7 @@
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Avalonia.Win32.Automation.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Avalonia.Win32.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Avalonia.X11.dll
+/home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/CommunityToolkit.Mvvm.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Google.Protobuf.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Grpc.AspNetCore.Server.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Grpc.AspNetCore.Server.ClientFactory.dll
@@ -41,17 +53,6 @@
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/Tmds.DBus.Protocol.dll
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/libHarfBuzzSharp.so
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/bin/Debug/net9.0/linux-x64/libSkiaSharp.so
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.csproj.AssemblyReference.cache
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Avalonia/Resources.Inputs.cache
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Avalonia/resources
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.GeneratedMSBuildEditorConfig.editorconfig
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.AssemblyInfoInputs.cache
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.AssemblyInfo.cs
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.csproj.CoreCompileInputs.cache
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.sourcelink.json
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal .A93C1A6F.Up2Date
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.dll
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/refint/Crystal Growth Monitor.dll
-/home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.pdb
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/Crystal Growth Monitor.genruntimeconfig.cache
 /home/isomet-xeon/Development/Crystal-Growth-Monitor/obj/Debug/net9.0/linux-x64/ref/Crystal Growth Monitor.dll

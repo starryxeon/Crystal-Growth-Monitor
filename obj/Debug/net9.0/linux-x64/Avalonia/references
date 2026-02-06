@@ -22,6 +22,7 @@
 /home/isomet-xeon/.nuget/packages/avalonia.win32/11.3.10/lib/net8.0/Avalonia.Win32.Automation.dll
 /home/isomet-xeon/.nuget/packages/avalonia.win32/11.3.10/lib/net8.0/Avalonia.Win32.dll
 /home/isomet-xeon/.nuget/packages/avalonia.x11/11.3.10/lib/net8.0/Avalonia.X11.dll
+/home/isomet-xeon/.nuget/packages/communitytoolkit.mvvm/8.4.0/lib/net8.0/CommunityToolkit.Mvvm.dll
 /home/isomet-xeon/.nuget/packages/google.protobuf/3.33.3/lib/net5.0/Google.Protobuf.dll
 /home/isomet-xeon/.nuget/packages/grpc.aspnetcore.server.clientfactory/2.76.0/lib/net9.0/Grpc.AspNetCore.Server.ClientFactory.dll
 /home/isomet-xeon/.nuget/packages/grpc.aspnetcore.server/2.76.0/lib/net9.0/Grpc.AspNetCore.Server.dll

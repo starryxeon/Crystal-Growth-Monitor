@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Crystal_Growth_Monitor.Views.Furnace1">
+
+            <Grid Margin="20"
+                ColumnDefinitions="Auto,*"
+                RowDefinitions="*">
+
+                <StackPanel Grid.Column="0"
+                        Spacing="10"
+                        Width="300">
+
+                <TextBox Name="InputBox"
+                        Watermark="Enter text here"/>
+
+                <Button Content="Copy Text"
+                        Click="CopyText_Click"/>
+
+                <TextBlock Name="OutputText"
+                        FontSize="16"/>
+
+                <Ellipse Name="ColorCircle"
+                        Width="80"
+                        Height="80"
+                        Fill="Red"
+                        HorizontalAlignment="Center"/>
+
+                <Button Content="Change Circle Color"
+                        Click="ChangeColor_Click"/>
+
+                </StackPanel>
+
+                <Border Grid.Column="1"
+                        Margin="20,0,0,0"
+                        BorderBrush="Gray"
+                        BorderThickness="1"
+                        CornerRadius="6">
+
+                <Image Name="CameraImage"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"/>
+
+                </Border>
+
+        </Grid>
+
+</UserControl>
