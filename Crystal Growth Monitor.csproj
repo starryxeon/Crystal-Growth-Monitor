@@ -28,6 +28,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
+    <PackageReference Include="SkiaSharp" Version="3.119.1" />
     <Protobuf Include="protos\event.proto" />
     <Protobuf Include="protos\stream.proto" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />

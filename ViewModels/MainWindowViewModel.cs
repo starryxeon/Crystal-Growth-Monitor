@@ -2,10 +2,11 @@ using System;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Crystal_Growth_Monitor.grpc;
 
 namespace Crystal_Growth_Monitor.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
 {
     [ObservableProperty]
     private bool _isPaneOpen = true;
@@ -30,5 +31,13 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     private void TriggerPane() {
         IsPaneOpen = !IsPaneOpen;
+    }
+
+    public async void UpdateAsync(FactoryContainer container)
+    {
+       foreach (FurnaceViewModel furnace in Furnaces)
+        {
+            furnace.UpdateAsync(container.GetContainer(furnace.furnaceName));
+        }
     }
 }

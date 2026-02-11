@@ -1,2 +1,2 @@
-obj/Debug/net9.0/linux-x64/protos/Stream.cs \
-obj/Debug/net9.0/linux-x64/protos/StreamGrpc.cs: protos/stream.proto
+obj\Debug\net9.0\linux-x64\protos/Stream.cs \
+obj\Debug\net9.0\linux-x64\protos/StreamGrpc.cs: protos/stream.proto

@@ -1,2 +1,2 @@
-obj/Debug/net9.0/linux-x64/protos/Event.cs \
-obj/Debug/net9.0/linux-x64/protos/EventGrpc.cs: protos/event.proto
+obj\Debug\net9.0\linux-x64\protos/Event.cs \
+obj\Debug\net9.0\linux-x64\protos/EventGrpc.cs: protos/event.proto

@@ -3,8 +3,52 @@ using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using OpenCvSharp;
 using System;
+using Crystal_Growth_Monitor.grpc;
+using System.Linq;
 
 namespace Crystal_Growth_Monitor;
+
+
+public interface IAsyncUpdatable
+{
+    void UpdateAsync(FactoryContainer container);
+
+}
+
+/// <summary>
+/// Represents the state of one furnace, including the user inputs and information from the backend.
+/// </summary>
+public class FurnaceContainer
+{
+    public string label;
+}
+
+public class FactoryContainer
+{
+    public List<FurnaceContainer> States = new();
+
+    public FurnaceContainer GetContainer(string label)
+    {
+        foreach (FurnaceContainer f in States)
+        {
+            if (f.label == label)
+            {
+                return f;
+            }
+        }
+        var g = new FurnaceContainer
+        {
+            label = label
+        };
+        _ = States.Append(g);
+        return g;
+    }
+
+    public void Update(Frame frame)
+    {
+        ///TODO IMPLEMENT
+    }
+}
 
 /// <summary>
 /// Class <c>FurnaceInit</c> is a datatype containing the values to initialize one furnace. This is stored in a .JSON on the backend computers.
