@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maxbp\\Shared\\Code Projects\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {}
+    "/home/max/Documents/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maxbp\\Shared\\Code Projects\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj": {
+    "/home/max/Documents/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maxbp\\Shared\\Code Projects\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
+        "projectUniqueName": "/home/max/Documents/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj",
         "projectName": "Crystal Growth Monitor",
-        "projectPath": "C:\\Users\\maxbp\\Shared\\Code Projects\\Crystal-Growth-Monitor\\Crystal Growth Monitor.csproj",
-        "packagesPath": "C:\\Users\\maxbp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maxbp\\Shared\\Code Projects\\Crystal-Growth-Monitor\\obj\\",
+        "projectPath": "/home/max/Documents/Crystal-Growth-Monitor/Crystal Growth Monitor.csproj",
+        "packagesPath": "/home/max/.nuget/packages/",
+        "outputPath": "/home/max/Documents/Crystal-Growth-Monitor/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\maxbp\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/max/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -46,7 +46,7 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.3.10, )"
+              "version": "[11.3.11, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
@@ -86,13 +86,21 @@
               "target": "Package",
               "version": "[2.76.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
             "OpenCvSharp4": {
               "target": "Package",
               "version": "[4.11.0.20250507, )"
             },
             "SkiaSharp": {
               "target": "Package",
-              "version": "[3.119.1, )"
+              "version": "[3.119.2, )"
+            },
+            "SkiaSharp.NativeAssets.Linux": {
+              "target": "Package",
+              "version": "[3.119.2, )"
             }
           },
           "imports": [
@@ -106,12 +114,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[9.0.8, 9.0.8]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -120,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.311/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

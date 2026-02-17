@@ -13,25 +13,25 @@ public partial class Furnace1 : UserControl
     public string? copiedText;
     FurnaceGrpcClient client;
 
-    //private readonly RtspCameraService _camera = new();
+    private readonly RtspCameraService _camera = new();
 
     public Furnace1()
     {
         InitializeComponent();
         client = App.GrpcClient;
 
-        // _camera.FrameReady += bitmap =>
-        // {
-        //     CameraImage.Source = bitmap;
-        // };
+        _camera.FrameReady += bitmap =>
+        {
+            CameraImage.Source = bitmap;
+        };
     
-        // _camera.Start("rtsp://192.168.168.202:8554/cam");
+        _camera.Start("rtsp://192.168.168.202:8554/cam");
     }
 
     
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
-        //_camera.Dispose();
+        _camera.Dispose();
         base.OnDetachedFromVisualTree(e);
     }
 
@@ -51,13 +51,6 @@ public partial class Furnace1 : UserControl
             disabled = !disabled;
             ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
             Console.WriteLine($"Value of 'disabled' variable: {disabled}");
-            var resp = await client.SendEventAsync(new Event
-            {
-                Type = 9,
-                Index = 0,
-                Payload = ""
-            });
-            Console.WriteLine(resp);
         }
         catch (Exception ex)
         {

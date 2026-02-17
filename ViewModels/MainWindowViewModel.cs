@@ -1,8 +1,12 @@
 using System;
+using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Security;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Crystal_Growth_Monitor.grpc;
+using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 
 namespace Crystal_Growth_Monitor.ViewModels;
 
@@ -14,18 +18,21 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
     [ObservableProperty]
     private ViewModelBase _currentTab;
 
-    public ObservableCollection<FurnaceViewModel> Furnaces { get; } = new()
-    {
-        new FurnaceViewModel("Furnace 1"),
-        new FurnaceViewModel("Furnace 2"),
-        new FurnaceViewModel("Furnace 3"),
-        new FurnaceViewModel("Furnace 4")
-    };
-
+    public ObservableCollection<FurnaceViewModel> Furnaces { get; } = new();
     public MainWindowViewModel()
     {
-        // Set the first furnace as the default view on startup
-        _currentTab = Furnaces[0];
+        // Set a default tab to start
+        _currentTab = new DefaultViewModel();
+
+        // then request existing furnaces from backend
+        Setup();
+
+        // then make new furnace viewmodels
+        foreach (var furnace in App.Container.states)
+        {
+            var f = new FurnaceViewModel(furnace.Key, furnace.Value);
+            Furnaces.Add(f);
+        }
     }
 
     [RelayCommand]
@@ -33,11 +40,19 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
         IsPaneOpen = !IsPaneOpen;
     }
 
+    private async void Setup()
+    {
+        try
+        {
+        var response = await App.GrpcClient.SendEventAsync(EventType.RequestFurnaces);
+        App.Container.Set(response);
+        }
+        catch(Exception ex) {Console.WriteLine(ex);}
+    }
+
     public async void UpdateAsync(FactoryContainer container)
     {
-       foreach (FurnaceViewModel furnace in Furnaces)
-        {
-            furnace.UpdateAsync(container.GetContainer(furnace.furnaceName));
-        }
+        await Parallel.ForEachAsync(Furnaces, async (vm, vt) =>
+            vm.Update(container.GetContainer(vm.FurnaceKey)));
     }
 }

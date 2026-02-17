@@ -7,6 +7,7 @@ using Grpc.Core;
 
 namespace Crystal_Growth_Monitor.grpc;
 using Crystal_Growth_Monitor;
+using Newtonsoft.Json;
 
 public sealed class FurnaceGrpcClient : IAsyncDisposable
 {
@@ -68,8 +69,15 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
     /// <summary>
     /// Send one event and return the response.
     /// </summary>
-    public async Task<EventResponse> SendEventAsync(Event ev, CancellationToken ct = default)
+    public async Task<EventResponse> SendEventAsync(EventType type, object? Payload = null, CancellationToken ct = default)
     {
+        Event ev = new Event
+        {
+            Type = (int)type,
+            Index = 0,
+            Payload = JsonConvert.SerializeObject(Payload)
+        };
+
         using var linked = CancellationTokenSource.CreateLinkedTokenSource(_cts.Token, ct);
 
         try

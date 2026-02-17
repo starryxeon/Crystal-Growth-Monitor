@@ -5,6 +5,10 @@ using OpenCvSharp;
 using System;
 using Crystal_Growth_Monitor.grpc;
 using System.Linq;
+using Newtonsoft.Json;
+using System.Collections.Concurrent;
+using Avalonia.Input;
+using Tmds.DBus.Protocol;
 
 namespace Crystal_Growth_Monitor;
 
@@ -21,32 +25,51 @@ public interface IAsyncUpdatable
 public class FurnaceContainer
 {
     public string label;
+    public double processValue;
+
+    /// <summary>
+    /// Update this furnace container with data from a furnace state
+    /// </summary>
+    public void StateUpdate(FurnaceState state)
+    {
+        processValue = state.processValue; //TODO implement
+    }
 }
 
 public class FactoryContainer
 {
-    public List<FurnaceContainer> States = new();
+    public ConcurrentDictionary<int, FurnaceContainer> states = new();
 
-    public FurnaceContainer GetContainer(string label)
+    /// <summary>
+    /// Gets or creates a furnace container with a specified key.
+    /// </summary>
+    public FurnaceContainer GetContainer(int key)
     {
-        foreach (FurnaceContainer f in States)
-        {
-            if (f.label == label)
-            {
-                return f;
-            }
-        }
-        var g = new FurnaceContainer
-        {
-            label = label
-        };
-        _ = States.Append(g);
-        return g;
+        return states.GetOrAdd(key, new FurnaceContainer());
     }
 
     public void Update(Frame frame)
     {
-        ///TODO IMPLEMENT
+        try {
+        var newStates = JsonConvert.DeserializeObject<ConcurrentDictionary<int, FurnaceState>>(frame.Payload);
+
+        foreach(KeyValuePair<int, FurnaceState> newState in newStates)
+        {
+            var container = states.GetOrAdd(newState.Key, new FurnaceContainer());
+            container.StateUpdate(newState.Value);
+        }
+        }
+        catch(Exception ex) {Console.WriteLine(ex);}
+
+    }
+
+    /// <summary>
+    /// Initializes the container to an initial set of furnaces. To be used ONLY at startup.
+    /// </summary>
+    public void Set(EventResponse requestResponse)
+    {
+        var newContainer = JsonConvert.DeserializeObject<ConcurrentDictionary<int, FurnaceContainer>>(requestResponse.Payload);
+        states = newContainer;
     }
 }
 
@@ -57,6 +80,7 @@ public class FactoryContainer
 public class FurnaceInit
 {
     public string furnaceLabel;
+    public int? key;
     public int index;
     public int eurothermPort;
     public string eurothermIp;

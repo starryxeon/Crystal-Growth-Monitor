@@ -9,6 +9,7 @@ using Crystal_Growth_Monitor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Avalonia.Threading;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 
 namespace Crystal_Growth_Monitor;
@@ -16,7 +17,7 @@ namespace Crystal_Growth_Monitor;
 public partial class App : Application
 {
     public static FurnaceGrpcClient GrpcClient { get; private set; } = null!;
-    public FactoryContainer container;
+    public static FactoryContainer Container { get; set; }= new();
 
     public override void Initialize()
     {
@@ -50,19 +51,20 @@ public partial class App : Application
     }
 
     /// <summary>
-    /// Provided as callback to gRPC client to process an incoming frame. Should update all tabs and windows with new information.
+    /// Provided as callback to gRPC client to process an incoming frame. Should update all windows with new information.
     /// </summary>
     public ValueTask ProcessFrame(Frame frame)
     {   
-        container.Update(frame);
+        Container.Update(frame);
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            foreach (IAsyncUpdatable w in desktop.Windows)
+            foreach (IAsyncUpdatable w in desktop.Windows) {
                 Dispatcher.UIThread.Post(async () =>
                 {
-                    try { w.UpdateAsync(container); }
+                    try { w.UpdateAsync(Container); }
                     catch (Exception ex) {Console.WriteLine(ex);}
                 });
+            }
             return ValueTask.CompletedTask;
         }
         return ValueTask.CompletedTask;
