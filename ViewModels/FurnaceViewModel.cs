@@ -10,7 +10,7 @@ public partial class FurnaceViewModel : ViewModelBase
     public string furnaceName;
 
     [ObservableProperty]
-    public int furnaceKey;  // hash key to be generated when creating a new furnace, or provided by the backend for existing furnaces
+    public Guid furnaceKey;
 
     [ObservableProperty]
     private double _temperature;
@@ -18,7 +18,7 @@ public partial class FurnaceViewModel : ViewModelBase
     [ObservableProperty]
     private FurnaceContainer? _container;
 
-    public FurnaceViewModel(int key, FurnaceContainer container)
+    public FurnaceViewModel(Guid key, FurnaceContainer container)
     {
         furnaceKey = key;
         _container = Container;

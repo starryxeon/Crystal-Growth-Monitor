@@ -38,12 +38,12 @@ public class FurnaceContainer
 
 public class FactoryContainer
 {
-    public ConcurrentDictionary<int, FurnaceContainer> states = new();
+    public ConcurrentDictionary<Guid, FurnaceContainer> states = new();
 
     /// <summary>
     /// Gets or creates a furnace container with a specified key.
     /// </summary>
-    public FurnaceContainer GetContainer(int key)
+    public FurnaceContainer GetContainer(Guid key)
     {
         return states.GetOrAdd(key, new FurnaceContainer());
     }
@@ -51,9 +51,9 @@ public class FactoryContainer
     public void Update(Frame frame)
     {
         try {
-        var newStates = JsonConvert.DeserializeObject<ConcurrentDictionary<int, FurnaceState>>(frame.Payload);
+        var newStates = JsonConvert.DeserializeObject<ConcurrentDictionary<Guid, FurnaceState>>(frame.Payload);
 
-        foreach(KeyValuePair<int, FurnaceState> newState in newStates)
+        foreach(KeyValuePair<Guid, FurnaceState> newState in newStates)
         {
             var container = states.GetOrAdd(newState.Key, new FurnaceContainer());
             container.StateUpdate(newState.Value);
@@ -68,8 +68,15 @@ public class FactoryContainer
     /// </summary>
     public void Set(EventResponse requestResponse)
     {
-        var newContainer = JsonConvert.DeserializeObject<ConcurrentDictionary<int, FurnaceContainer>>(requestResponse.Payload);
-        states = newContainer;
+        var inits = JsonConvert.DeserializeObject<ConcurrentDictionary<Guid, FurnaceInit>>(requestResponse.Payload);
+        foreach (var init in inits)
+        {   
+            var furnaceContainer = new FurnaceContainer();
+            furnaceContainer.label = init.Value.furnaceLabel;   //TODO make complete container from init
+            Console.WriteLine(init.Value.furnaceLabel);
+            states.AddOrUpdate(init.Key, furnaceContainer, (_, _) => furnaceContainer);
+        }
+        Console.WriteLine(states.Count);
     }
 }
 

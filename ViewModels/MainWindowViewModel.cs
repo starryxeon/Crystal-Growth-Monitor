@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Collections.ObjectModel;
 using System.Security;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -33,6 +34,7 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
             var f = new FurnaceViewModel(furnace.Key, furnace.Value);
             Furnaces.Add(f);
         }
+        _currentTab = Furnaces[0];
     }
 
     [RelayCommand]
@@ -40,11 +42,11 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
         IsPaneOpen = !IsPaneOpen;
     }
 
-    private async void Setup()
+    private void Setup()
     {
         try
         {
-        var response = await App.GrpcClient.SendEventAsync(EventType.RequestFurnaces);
+        var response = App.GrpcClient.SendEventAsync(EventType.RequestFurnaces).GetAwaiter().GetResult();
         App.Container.Set(response);
         }
         catch(Exception ex) {Console.WriteLine(ex);}
