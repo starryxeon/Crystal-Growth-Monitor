@@ -1,2 +1,0 @@
-obj\Debug\net9.0\zeeble\Protos/Stream.cs \
-obj\Debug\net9.0\zeeble\Protos/StreamGrpc.cs: zeeble/Protos/stream.proto

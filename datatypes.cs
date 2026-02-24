@@ -3,8 +3,82 @@ using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using OpenCvSharp;
 using System;
+using Crystal_Growth_Monitor.grpc;
+using System.Linq;
+using Newtonsoft.Json;
+using System.Collections.Concurrent;
+using Avalonia.Input;
+using Tmds.DBus.Protocol;
 
 namespace Crystal_Growth_Monitor;
+
+
+public interface IAsyncUpdatable
+{
+    void UpdateAsync(FactoryContainer container);
+
+}
+
+/// <summary>
+/// Represents the state of one furnace, including the user inputs and information from the backend.
+/// </summary>
+public class FurnaceContainer
+{
+    public string label;
+    public double processValue;
+
+    /// <summary>
+    /// Update this furnace container with data from a furnace state
+    /// </summary>
+    public void StateUpdate(FurnaceState state)
+    {
+        processValue = state.processValue; //TODO implement
+    }
+}
+
+public class FactoryContainer
+{
+    public ConcurrentDictionary<Guid, FurnaceContainer> states = new();
+
+    /// <summary>
+    /// Gets or creates a furnace container with a specified key.
+    /// </summary>
+    public FurnaceContainer GetContainer(Guid key)
+    {
+        return states.GetOrAdd(key, new FurnaceContainer());
+    }
+
+    public void Update(Frame frame)
+    {
+        try {
+        var newStates = JsonConvert.DeserializeObject<ConcurrentDictionary<Guid, FurnaceState>>(frame.Payload);
+
+        foreach(KeyValuePair<Guid, FurnaceState> newState in newStates)
+        {
+            var container = states.GetOrAdd(newState.Key, new FurnaceContainer());
+            container.StateUpdate(newState.Value);
+        }
+        }
+        catch(Exception ex) {Console.WriteLine(ex);}
+
+    }
+
+    /// <summary>
+    /// Initializes the container to an initial set of furnaces. To be used ONLY at startup.
+    /// </summary>
+    public void Set(EventResponse requestResponse)
+    {
+        var inits = JsonConvert.DeserializeObject<ConcurrentDictionary<Guid, FurnaceInit>>(requestResponse.Payload);
+        foreach (var init in inits)
+        {   
+            var furnaceContainer = new FurnaceContainer();
+            furnaceContainer.label = init.Value.furnaceLabel;   //TODO make complete container from init
+            Console.WriteLine(init.Value.furnaceLabel);
+            states.AddOrUpdate(init.Key, furnaceContainer, (_, _) => furnaceContainer);
+        }
+        Console.WriteLine(states.Count);
+    }
+}
 
 /// <summary>
 /// Class <c>FurnaceInit</c> is a datatype containing the values to initialize one furnace. This is stored in a .JSON on the backend computers.
@@ -13,6 +87,7 @@ namespace Crystal_Growth_Monitor;
 public class FurnaceInit
 {
     public string furnaceLabel;
+    public int? key;
     public int index;
     public int eurothermPort;
     public string eurothermIp;
