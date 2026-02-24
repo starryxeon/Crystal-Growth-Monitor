@@ -51,13 +51,6 @@ public partial class Furnace1 : UserControl
             disabled = !disabled;
             ColorCircle.Fill = disabled ? Brushes.Red : Brushes.Green;
             Console.WriteLine($"Value of 'disabled' variable: {disabled}");
-            var resp = await client.SendEventAsync(new Event
-            {
-                Type = 9,
-                Index = 0,
-                Payload = ""
-            });
-            Console.WriteLine(resp);
         }
         catch (Exception ex)
         {

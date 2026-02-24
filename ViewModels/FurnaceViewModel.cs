@@ -1,3 +1,5 @@
+using System.Data;
+using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Crystal_Growth_Monitor.ViewModels;
@@ -5,13 +7,26 @@ namespace Crystal_Growth_Monitor.ViewModels;
 public partial class FurnaceViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private string _furnaceName;
+    public string furnaceName;
+
+    [ObservableProperty]
+    public Guid furnaceKey;
 
     [ObservableProperty]
     private double _temperature;
 
-    public FurnaceViewModel(string name)
+    [ObservableProperty]
+    private FurnaceContainer? _container;
+
+    public FurnaceViewModel(Guid key, FurnaceContainer container)
     {
-        _furnaceName = name;
+        furnaceKey = key;
+        _container = Container;
+        furnaceName = container.label;
+    }
+    
+    public void Update(FurnaceContainer newContainer)
+    {
+        Container = newContainer;
     }
 }
