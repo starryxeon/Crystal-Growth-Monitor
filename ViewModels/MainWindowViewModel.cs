@@ -34,7 +34,7 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
             var f = new FurnaceViewModel(furnace.Key, furnace.Value);
             Furnaces.Add(f);
         }
-        _currentTab = Furnaces[0];
+        //_currentTab = Furnaces[0];
     }
 
     [RelayCommand]

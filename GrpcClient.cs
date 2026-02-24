@@ -98,6 +98,7 @@ public sealed class FurnaceGrpcClient : IAsyncDisposable
         {
             while (await responseStream.MoveNext(ct).ConfigureAwait(false))
             {
+                Console.WriteLine(responseStream.Current);
                 await _onFrameReceived(responseStream.Current).ConfigureAwait(false);
             }
         }

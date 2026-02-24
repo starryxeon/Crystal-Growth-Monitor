@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Crystal Growth Monitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9acd003624125165b26ae3f09fad18e023769d9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+803ebcbdd63c58652ceeb4ed3102ce1fd0d39d3c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Crystal Growth Monitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Crystal Growth Monitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
