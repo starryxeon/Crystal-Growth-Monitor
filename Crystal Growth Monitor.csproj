@@ -7,6 +7,8 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,5 +36,9 @@
     <Protobuf Include="protos\event.proto" />
     <Protobuf Include="protos\stream.proto" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <None Include="native/libOpenCvSharpExtern.so">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <Link>libOpenCvSharpExtern.so</Link>
+    </None>
   </ItemGroup>
 </Project>
