@@ -1,7 +1,7 @@
 THIRD-PARTY NOTICES
 ===================
 
-Crystal Growth Monitor is licensed under the GNU General Public License v3.0.
+Crystal Growth Monitor is licensed under the GNU Affero General Public License Version 3.
 
 This project includes the following third-party components:
 
