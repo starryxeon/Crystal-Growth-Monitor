@@ -25,14 +25,14 @@ public interface IAsyncUpdatable
 public class FurnaceContainer
 {
     public string label;
-    public double processValue;
+    public FurnaceState furnaceState;
 
     /// <summary>
     /// Update this furnace container with data from a furnace state
     /// </summary>
     public void StateUpdate(FurnaceState state)
     {
-        processValue = state.processValue; //TODO implement
+        furnaceState = state;
     }
 }
 
@@ -117,11 +117,7 @@ public class FurnaceInit
 /// Class <c>FurnaceState</c> contains information about a single furnace's current state, to be sent to the frontend
 /// </summary>
 public class FurnaceState
-{
-    /// <summary>
-    /// Used to determine if a furnace still exists. If false, the furnace at this index should be ignored.
-    /// </summary>
-    public bool _active;
+{    
     public string? furnaceLabel;
     public double processValue;
     public double setpoint;
@@ -131,12 +127,11 @@ public class FurnaceState
     public AlarmStatus overrangeAlarm;
     public AlarmStatus sensorBreak;
     public AlarmStatus rspFailure;
-    public ProfileStatus state;
+    public ProfileStatus profileStatus;
     public long time_s;
 
     public FurnaceState(string _furnaceLabel, string _profileName, double _processValue, double _setpoint, FurnaceStatus _status, AlarmStatus _underrange, AlarmStatus _overrange, AlarmStatus _sensor, AlarmStatus _rsp, ProfileStatus _state, long _time_s)
     {
-        _active = true;
         furnaceLabel = _furnaceLabel;
         processValue = _processValue;
         setpoint = _setpoint;
@@ -145,19 +140,10 @@ public class FurnaceState
         overrangeAlarm = _overrange;
         sensorBreak = _sensor;
         rspFailure = _rsp;
-        state = _state;
+        profileStatus = _state;
         time_s = _time_s;
     }
-    public FurnaceState()
-    {
-        _active = false;
-    }
 }
-
-/// <summary>
-/// ProcessState is used to tell a furnace to resume, pause, or stop following the profile.
-/// </summary>
-public enum ProcessState { Stop, Pause, Continue }
 
 public enum ProfileStatus { Running, Paused, Stopped }
 

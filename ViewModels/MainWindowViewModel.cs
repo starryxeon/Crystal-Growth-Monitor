@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.Input;
 using Crystal_Growth_Monitor.grpc;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
+using System.Reflection.Emit;
 
 namespace Crystal_Growth_Monitor.ViewModels;
 
@@ -38,6 +39,10 @@ public partial class MainWindowViewModel : ViewModelBase, IAsyncUpdatable
         {
             _currentTab = Furnaces[0];
         }
+
+        // fake furnace tab for testing
+        Furnaces.Add(new FurnaceViewModel(new Guid(), new FurnaceContainer(){label = "test"}));
+        _currentTab = Furnaces[0];
     }
 
     [RelayCommand]

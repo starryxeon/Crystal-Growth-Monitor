@@ -55,7 +55,10 @@ public partial class App : Application
     /// </summary>
     public ValueTask ProcessFrame(Frame frame)
     {   
-        Container.Update(frame);
+        Dispatcher.UIThread.Post(async () =>
+        {
+            Container.Update(frame);
+        });
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             foreach (IAsyncUpdatable w in desktop.Windows) {
